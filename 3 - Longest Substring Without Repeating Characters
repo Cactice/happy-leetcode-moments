@@ -5,6 +5,8 @@ class Solution:
         :rtype: int
         """
         
+        # time: 40min
+        
         hasDuplicate = {}
         lengthList = []
         longestLength = 0
