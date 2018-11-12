@@ -1,0 +1,24 @@
+class Solution:
+    def lengthOfLongestSubstring(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        
+        hasDuplicate = {}
+        lengthList = []
+        longestLength = 0
+        for idx,letter in enumerate(s):
+            if letter not in hasDuplicate:
+                hasDuplicate[letter] = idx
+            else :
+                if longestLength < len(hasDuplicate) :
+                    longestLength = len(hasDuplicate)
+                lastDuplicate = hasDuplicate[letter]
+                hasDuplicate = {}
+                for idx2,recheck in enumerate(s[lastDuplicate:idx]) :
+                    hasDuplicate[recheck] = lastDuplicate+idx2
+                hasDuplicate[letter] = idx
+        if longestLength < len(hasDuplicate) :
+            longestLength = len(hasDuplicate)
+        return longestLength
