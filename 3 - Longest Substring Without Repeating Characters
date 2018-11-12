@@ -14,10 +14,10 @@ class Solution:
             else :
                 if longestLength < len(hasDuplicate) :
                     longestLength = len(hasDuplicate)
-                lastDuplicate = hasDuplicate[letter]
+                duplicateIdx = hasDuplicate[letter]
                 hasDuplicate = {}
-                for idx2,recheck in enumerate(s[lastDuplicate:idx]) :
-                    hasDuplicate[recheck] = lastDuplicate+idx2
+                for idx2,recheck in enumerate(s[duplicateIdx:idx]) :
+                    hasDuplicate[recheck] = duplicateIdx+idx2
                 hasDuplicate[letter] = idx
         if longestLength < len(hasDuplicate) :
             longestLength = len(hasDuplicate)
